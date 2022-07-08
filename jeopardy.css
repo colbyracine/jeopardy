@@ -1,7 +1,53 @@
-/* some colors you may find useful:
-  #115ff4
-  #060ce9
-  #28a200
-  #8d2ab5
-  #74119c
-*/
+body {
+  margin: auto;
+  padding: 10px;
+  width: fit-content;
+  height: fit-content;
+  block-size: fit-content;
+  background-image: url(https://images2.alphacoders.com/581/581068.jpg);
+}
+
+h1 {
+  color: #ffff00;
+  text-shadow: 1px 1px white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 3em;
+}
+
+#jeopardy {
+  text-align: center;
+  font-size: 10pt;
+  background-color: #060ce9;
+  color: white;
+  border-collapse: collapse;
+  border-radius: 1em;
+}
+
+#jeopardy th,
+#jeopardy td {
+  border: solid 3px black;
+  width: 10em;
+  padding: 1em;
+}
+
+th {
+  text-transform: uppercase;
+  font-family: Helvetica, sans-serif;
+  font-weight: bold;
+  height: 2em;
+}
+
+td {
+  height: 7em;
+  font-family: Copse, serif;
+  color: #fff000;
+}
+
+td:hover {
+  cursor: pointer;
+}
+
+#restart {
+  align-items: center;
+}

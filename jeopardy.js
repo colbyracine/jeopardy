@@ -17,8 +17,8 @@
 //    },
 //    ...
 //  ]
-let numOfCats = 5;
-let cluesPerCat = 6;
+let numOfCats = 6;
+let cluesPerCat = 5;
 let apiBase = "http://jservice.io/api/";
 let categories = [];
 
@@ -74,13 +74,13 @@ async function fillTable() {
   }
   $("#jeopardy thead").append($tr);
 
-  $("#jeopardy body").empty();
+  $("#jeopardy tbody").empty();
   for (let clueIdx = 0; clueIdx < cluesPerCat; clueIdx++) {
     let $tr = $("<tr>");
     for (let catIdx = 0; catIdx < numOfCats; catIdx++) {
       $tr.append($("<td>").attr("id", `${catIdx}-${clueIdx}`).text("?"));
     }
-    $("jeopardy tbody").append($tr);
+    $("#jeopardy tbody").append($tr);
   }
 }
 
@@ -101,6 +101,7 @@ function handleClick(evt) {
 
   if (!clue.showing) {
     msg = clue.question;
+    clue.showing = "question";
   } else if (clue.showing === "question") {
     msg = clue.answer;
     clue.showing = "answer";
@@ -129,9 +130,8 @@ function hideLoadingView() {}
 
 async function setupAndStart() {
   let catIds = await getCategoryIds();
-
+  //   console.log(catIds);
   categories = [];
-
   for (let catId of catIds) {
     categories.push(await getCategory(catId));
   }
